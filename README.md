@@ -8,6 +8,8 @@ JavaScript AST transformer and code generator, optimized for older engines.
 Inspired by Falafel (https://github.com/substack/node-falafel),
 but modified for performance in older JavaScript engines (eg. IE8.)
 
+Unlike Falafel, AST traversal is breadth-first so parent nodes are visited before their children.
+
 Example
 -------
 ```javascript

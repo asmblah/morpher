@@ -1,0 +1,42 @@
+{
+  "version": "0.1.0",
+  "name": "morpher",
+  "description": "JavaScript AST transformer and code generator",
+  "keywords": [
+    "ast",
+    "morph",
+    "transpile"
+  ],
+  "homepage": "https://github.com/asmblah/morpher",
+  "author": "Dan Phillimore <dan@ovms.co> (http://ovms.co)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asmblah/morpher"
+  },
+  "bugs": {
+    "email": "dan@ovms.co",
+    "url": "http://github.com/asmblah/morpher/issues"
+  },
+  "main": "index",
+  "scripts": {
+    "jshint": "jshint .",
+    "mocha": "mocha -r ./test/harness/common --reporter spec --recursive ./test/unit",
+    "test": "npm run jshint && npm run mocha"
+  },
+  "dependencies": {
+    "lodash": "^3.10.0"
+  },
+  "devDependencies": {
+    "acorn": "^2.3.0",
+    "chai": "^2.3.0",
+    "jshint": "^2.8.0",
+    "mocha": "^2.2.5",
+    "nowdoc": "^1.0.0",
+    "sinon": "~1.15",
+    "sinon-chai": "^2.7.0"
+  },
+  "engines": {
+    "node": ">=0.6"
+  },
+  "license": "MIT"
+}

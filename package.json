@@ -24,6 +24,7 @@
     "test": "npm run jshint && npm run mocha"
   },
   "dependencies": {
+    "estraverse": "^4.1.0",
     "lodash": "^3.10.0"
   },
   "devDependencies": {

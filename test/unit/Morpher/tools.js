@@ -22,7 +22,7 @@ module.exports = {
             it('should return the expected result', function () {
                 var ast = acorn.parse(scenario.code, {ranges: true});
 
-                expect(this.morpher.morph(scenario.code, ast, scenario.fn))
+                expect(this.morpher.morph(scenario.code, ast, scenario.fn, scenario.breadthFirstFn))
                     .to.equal(scenario.expectedResult);
             });
         });

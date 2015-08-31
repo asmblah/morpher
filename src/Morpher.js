@@ -56,6 +56,10 @@ _.extend(Morpher.prototype, {
             for (i = 0, keysLength = keys.length; i < keysLength; i++) {
                 prop = node[keys[i]];
 
+                if (!prop) {
+                    continue;
+                }
+
                 if (prop.type) {
                     walk(prop, node);
                 } else if (toString.call(prop) === '[object Array]') {

@@ -52,50 +52,6 @@ var result = postProcess(20 - 4);
 
 EOS
 */;}), // jshint ignore:line
-        },
-        'wrapping only expressions inside functions': {
-            code: nowdoc(function () {/*<<<EOS
-// Expression 1
-var result1 = 20 - 4;
-
-function a() {
-    // Expression 2
-    var result2 = 30 - 2;
-}
-
-// Expression 3
-var result1 = 40 - 6;
-
-EOS
-*/;}), // jshint ignore:line
-            fn: function (node, parent, replace, source) {
-                if (node.type === 'BinaryExpression' && node.inFunc) {
-                    replace(node, 'process(' + source(node) + ')');
-                }
-            },
-            breadthFirstFn: function (node, parent) {
-                if (parent) {
-                    node.inFunc = parent.inFunc;
-                }
-
-                if (node.type === 'FunctionDeclaration') {
-                    node.inFunc = true;
-                }
-            },
-            expectedResult: nowdoc(function () {/*<<<EOS
-// Expression 1
-var result1 = 20 - 4;
-
-function a() {
-    // Expression 2
-    var result2 = process(30 - 2);
-}
-
-// Expression 3
-var result1 = 40 - 6;
-
-EOS
-*/;}), // jshint ignore:line
         }
     }, tools.check);
 });
